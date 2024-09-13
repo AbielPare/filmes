@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model
+class Usuario extends Model implements Authenticatable
 {
     use HasFactory;
 
@@ -16,6 +17,7 @@ class Usuario extends Model
         'password',
         'admin'
     ];
+
 
     function getAuthIdentifierName()
     {
@@ -30,6 +32,11 @@ class Usuario extends Model
     function getAuthPassword()
     {
         return $this->password;
+    }
+
+    function getAuthPasswordName()
+    {
+        
     }
     function getRememberToken()
     {

@@ -14,7 +14,7 @@ class FilmesSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('animais')->insert([
+        DB::table('filmes')->insert([
 
         ]);
     }
