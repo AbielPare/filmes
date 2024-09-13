@@ -5,9 +5,9 @@
 
 @section('conteudo')
 <p>Tem certeza que quer apagar?</p>
-<p><em>{{ $animal['nome'] }}</em></p>
+<p><em>{{ $filme['nome'] }}</em></p>
 
-<form action="{{ route('animais.apagar', $animal['id']) }}" method="post">
+<form action="{{ route('filmes.apagar', $filme['id']) }}" method="post">
 @method('delete')
 @csrf
 
@@ -15,5 +15,5 @@
 
 </form>
 
-<a href="{{ route('animais') }}">Cancelar</a>
+<a href="{{ route('filmes') }}">Cancelar</a>
 @endsection
