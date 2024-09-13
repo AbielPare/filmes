@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Filme extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id',
+        'nome',
+        'sinopse',
+        'ano',
+        'categoria',
+        'link',
+    ];
 }
