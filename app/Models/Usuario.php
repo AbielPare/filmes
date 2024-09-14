@@ -51,5 +51,11 @@ class Usuario extends Model implements Authenticatable
 
     }
 
+
+    public function getIsAdminAttribute()
+    {
+        return $this->admin; // Ou o nome do campo correto no seu banco de dados
+    }
+
 }
 

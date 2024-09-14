@@ -1,13 +1,13 @@
-{{-- views/animais/apagar.blade.php --}}
+{{-- views/filmes/apagar.blade.php --}}
 @extends('base')
 
-@section('titulo', 'Apagar | Animais para adoção')
+@section('titulo', 'Apagar | Filmes')
 
 @section('conteudo')
 <p>Tem certeza que quer apagar?</p>
-<p><em>{{ $filme['nome'] }}</em></p>
+<p><em>{{ $filme->nome }}</em></p>
 
-<form action="{{ route('filmes.apagar', $filme['id']) }}" method="post">
+<form action="{{ route('filmes.deletar', $filme->id) }}" method="post">
 @method('delete')
 @csrf
 

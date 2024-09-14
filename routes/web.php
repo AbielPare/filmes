@@ -16,7 +16,12 @@ Route::post('/filmes/cadastrar',[FilmesController::class, 'gravar'])->name('film
 
 Route::get('/filmes/apagar/{filmes}', [FilmesController::class, 'apagar'])->name('filmes.apagar');
 
-Route::delete('/filmes/apagar/{filmes}', [FilmesController::class, 'deletar']);
+Route::delete('/filmes/apagar/{filmes}', [FilmesController::class, 'deletar'])->name('filmes.deletar');
+
+Route::get('/filmes/editar/{id}', [FilmesController::class, 'editar'])->name('filmes.editar')->middleware('admin');
+
+Route::post('/filmes/atualizar/{id}', [FilmesController::class, 'atualizar'])->name('filmes.atualizar')->middleware('admin');
+
 
 Route::prefix('usuarios')->middleware('auth')->group(function() {
     Route::get('/', [UsuariosController::class, 'index'])->name('usuarios');
@@ -25,7 +30,18 @@ Route::prefix('usuarios')->middleware('auth')->group(function() {
     
     Route::post('/inserir', [UsuariosController::class, 'insert'])->name('usuarios.gravar');
     
-    Route::get('/apagar/{usuario}', [UsuariosController::class, 'remove'])->name('usuarios.apagar');
+    Route::get('/usuarios/apagar/{usuario}', [UsuariosController::class, 'remove'])->name('usuarios.apagar'); 
+    
+    Route::delete('/usuarios/apagar/{usuario}', [UsuariosController::class, 'deletar'])->name('usuarios.deletar');
+
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('filmes/cadastrar', [FilmesController::class, 'cadastrar'])->name('filmes.cadastrar');
+
+    Route::post('filmes', [FilmesController::class, 'store'])->name('filmes.store');
+
+    Route::get('filmes/apagar/{id}', [FilmesController::class, 'destroy'])->name('filmes.apagar');
 });
 
 Route::get('login', [UsuariosController::class, 'login'])->name('login');

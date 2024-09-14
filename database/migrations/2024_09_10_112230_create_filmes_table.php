@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('sinopse');
-            $table->smallInteger('ano')->unsigned();
+            $table->year('ano');
             $table->string('categoria');
-            $table->string('link', 255);
+            $table->string('link');
+            $table->string('imagem');
             $table->timestamps();
         });
     }

@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'disks' => [
+        'disks' => [
 
         'local' => [
             'driver' => 'local',
@@ -40,6 +40,14 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'imagens'=>[
+            'driver'=> 'local',
+            'root' => storage_path('imagens'),
+            'url' => env('APP_URL').'/img',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -71,6 +79,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('img') => storage_path('imagens'),
     ],
 
 ];

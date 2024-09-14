@@ -22,6 +22,7 @@
         .account-link:hover { background: #3d68ff; }
     </style>
 </head>
+
     <body class="bg-gray-100 font-family-karla flex">
 
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">

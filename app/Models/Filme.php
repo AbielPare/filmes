@@ -16,5 +16,6 @@ class Filme extends Model
         'ano',
         'categoria',
         'link',
+        'imagem'
     ];
 }

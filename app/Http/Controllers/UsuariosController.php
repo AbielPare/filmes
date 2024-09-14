@@ -62,4 +62,16 @@ class UsuariosController extends Controller
         Auth::logout();
         return redirect()->route('index');
     }
+
+    public function remove($id) {
+        $usuario = Usuario::findOrFail($id);
+        return view('usuarios.apagar', ['usuario' => $usuario]);
+    }
+    
+    public function deletar($id) {
+        $usuario = Usuario::findOrFail($id);
+        $usuario->delete();
+        return redirect()->route('usuarios');
+    }
+    
 }
